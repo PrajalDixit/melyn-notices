@@ -1,0 +1,19 @@
+appId: ${APP_ID}
+env:
+  APP_ID: com.melyn.notices
+---
+- runFlow: common/launch-without-failures.yml
+- assertVisible:
+    id: "category-filter-all"
+- tapOn:
+    id: "category-filter-event"
+- extendedWaitUntil:
+    visible:
+      id: "notice-card-.*"
+    timeout: 10000
+- tapOn:
+    id: "category-filter-all"
+- extendedWaitUntil:
+    visible:
+      id: "notice-card-.*"
+    timeout: 10000

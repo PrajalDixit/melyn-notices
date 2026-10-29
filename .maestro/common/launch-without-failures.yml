@@ -1,0 +1,27 @@
+appId: ${APP_ID}
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible:
+      id: "notice-list-screen"
+    timeout: 15000
+- runFlow:
+    when:
+      visible:
+        id: "dev-failure-toggle"
+        checked: true
+    commands:
+      - tapOn:
+          id: "dev-failure-toggle"
+- runFlow:
+    when:
+      visible:
+        id: "state-view-action"
+    commands:
+      - tapOn:
+          id: "state-view-action"
+- extendedWaitUntil:
+    visible:
+      id: "notice-card-.*"
+    timeout: 15000
